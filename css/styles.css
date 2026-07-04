@@ -680,6 +680,10 @@ ul {
 
 .pricing__card {
   position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .pricing__card-inner {

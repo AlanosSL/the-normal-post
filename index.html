@@ -153,7 +153,7 @@
                 <span></span><span></span><span></span>
               </div>
               <div class="envelope-card__stamp">
-                <span>14€</span>
+                <span>✉</span>
               </div>
             </div>
           </div>
@@ -222,8 +222,10 @@
       </p>
 
       <div class="pricing">
+        <!-- STRIPE: Reemplazar cada href con tu Payment Link de Stripe -->
+
         <!-- 1 mes -->
-        <div class="pricing__card animate-on-scroll">
+        <a href="https://buy.stripe.com/TU_PAYMENT_LINK_1MES" class="pricing__card animate-on-scroll" data-plan="1-mes">
           <div class="pricing__card-inner">
             <div class="pricing__stamp-corner">✧</div>
             <h3 class="pricing__name">Carta Suelta</h3>
@@ -240,15 +242,12 @@
               <li>Receta de temporada</li>
               <li>Envío incluido</li>
             </ul>
-            <!-- STRIPE: Reemplazar href con tu Payment Link de Stripe -->
-            <a href="https://buy.stripe.com/TU_PAYMENT_LINK_1MES" class="btn btn--plan" data-plan="1-mes">
-              Quiero mi carta
-            </a>
+            <span class="btn btn--plan">Quiero mi carta</span>
           </div>
-        </div>
+        </a>
 
         <!-- 3 meses -->
-        <div class="pricing__card pricing__card--featured animate-on-scroll">
+        <a href="https://buy.stripe.com/TU_PAYMENT_LINK_3MESES" class="pricing__card pricing__card--featured animate-on-scroll" data-plan="3-meses">
           <div class="pricing__card-inner">
             <div class="pricing__badge">Más popular</div>
             <div class="pricing__stamp-corner">✦</div>
@@ -267,15 +266,12 @@
               <li>Envío incluido</li>
               <li>Ahorra un 7%</li>
             </ul>
-            <!-- STRIPE: Reemplazar href con tu Payment Link de Stripe -->
-            <a href="https://buy.stripe.com/TU_PAYMENT_LINK_3MESES" class="btn btn--plan btn--plan-featured" data-plan="3-meses">
-              Empezar correspondencia
-            </a>
+            <span class="btn btn--plan btn--plan-featured">Empezar correspondencia</span>
           </div>
-        </div>
+        </a>
 
         <!-- 1 año -->
-        <div class="pricing__card animate-on-scroll">
+        <a href="https://buy.stripe.com/TU_PAYMENT_LINK_1ANO" class="pricing__card animate-on-scroll" data-plan="1-ano">
           <div class="pricing__card-inner">
             <div class="pricing__stamp-corner">◈</div>
             <h3 class="pricing__name">Suscripción Anual</h3>
@@ -294,12 +290,9 @@
               <li>Ahorra un 11%</li>
               <li>Ediciones especiales incluidas</li>
             </ul>
-            <!-- STRIPE: Reemplazar href con tu Payment Link de Stripe -->
-            <a href="https://buy.stripe.com/TU_PAYMENT_LINK_1ANO" class="btn btn--plan" data-plan="1-ano">
-              Suscribirme un año
-            </a>
+            <span class="btn btn--plan">Suscribirme un año</span>
           </div>
-        </div>
+        </a>
       </div>
 
       <p class="pricing__note">
