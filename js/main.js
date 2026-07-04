@@ -1,19 +1,27 @@
 (() => {
   'use strict';
 
+  // Activar Google Fonts (cargadas como media="print" para no bloquear render)
+  const fontLink = document.getElementById('google-fonts');
+  if (fontLink) fontLink.media = 'all';
+
   // Navegación mobile
   const toggle = document.getElementById('nav-toggle');
   const menu   = document.getElementById('nav-menu');
 
   toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
     toggle.classList.toggle('active');
-    menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
   });
 
   menu.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', () => {
       toggle.classList.remove('active');
       menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menú');
     });
   });
 

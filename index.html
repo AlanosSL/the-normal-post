@@ -68,13 +68,16 @@
   }
   </script>
 
-  <!-- Fonts -->
+  <!-- Fonts (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap" media="print" id="google-fonts">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap"></noscript>
 
-  <!-- Favicon -->
+  <!-- Favicon + Theme -->
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#F0E4D0">
 
   <!-- Seguridad -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://buy.stripe.com;">
@@ -85,14 +88,16 @@
 </head>
 <body>
 
+  <a href="#que-es" class="skip-link">Saltar al contenido</a>
+
   <!-- Navegación -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="Navegación principal">
     <div class="nav__container">
       <a href="#" class="nav__logo">
-        <span class="nav__logo-icon">✉</span>
+        <span class="nav__logo-icon" aria-hidden="true">✉</span>
         <span class="nav__logo-text">The Normal Post</span>
       </a>
-      <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú">
+      <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__menu" id="nav-menu">
@@ -107,7 +112,7 @@
 
   <!-- Hero -->
   <header class="hero" id="hero">
-    <div class="hero__bg-stamps">
+    <div class="hero__bg-stamps" aria-hidden="true">
       <div class="stamp stamp--1">✦</div>
       <div class="stamp stamp--2">◈</div>
       <div class="stamp stamp--3">✧</div>
@@ -128,7 +133,7 @@
       </div>
       <div class="hero__price-hint">Desde <strong>14&thinsp;€/mes</strong></div>
     </div>
-    <div class="hero__scroll-indicator">
+    <div class="hero__scroll-indicator" aria-hidden="true">
       <span>↓</span>
     </div>
   </header>
@@ -193,7 +198,7 @@
             entero para disfrutar sin pensar.
           </p>
         </div>
-        <div class="step__connector">· · · · · · ·</div>
+        <div class="step__connector" aria-hidden="true">· · · · · · ·</div>
         <div class="step animate-on-scroll">
           <div class="step__number">
             <span class="step__stamp">②</span>
@@ -204,7 +209,7 @@
             indícanos la dirección de quien quieras sorprender.
           </p>
         </div>
-        <div class="step__connector">· · · · · · ·</div>
+        <div class="step__connector" aria-hidden="true">· · · · · · ·</div>
         <div class="step animate-on-scroll">
           <div class="step__number">
             <span class="step__stamp">③</span>
@@ -469,6 +474,6 @@
     <a href="#planes" class="sticky-bar__btn">Suscríbete desde 14&thinsp;€/mes</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
