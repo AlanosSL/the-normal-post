@@ -788,6 +788,14 @@ ul {
   margin-bottom: 0.2rem;
 }
 
+.pricing__original-price {
+  font-size: 1.3rem;
+  color: rgba(251, 246, 238, 0.45);
+  text-decoration: line-through;
+  align-self: center;
+  margin-right: 0.4rem;
+}
+
 .pricing__amount {
   font-family: var(--font-display);
   font-size: 3.5rem;
