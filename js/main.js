@@ -17,14 +17,22 @@
     });
   });
 
-  // Nav scroll effect
+  // Nav scroll effect + sticky bar
   const nav = document.getElementById('nav');
-  let lastScroll = 0;
+  const stickyBar = document.getElementById('sticky-bar');
+  const heroSection = document.getElementById('hero');
+  const planesSection = document.getElementById('planes');
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     nav.classList.toggle('nav--scrolled', scrollY > 60);
-    lastScroll = scrollY;
+
+    if (stickyBar) {
+      const pastHero = scrollY > heroSection.offsetHeight - 200;
+      const inPlanes = planesSection.getBoundingClientRect();
+      const planesVisible = inPlanes.top < window.innerHeight && inPlanes.bottom > 0;
+      stickyBar.classList.toggle('visible', pastHero && !planesVisible);
+    }
   }, { passive: true });
 
   // Animaciones al hacer scroll (Intersection Observer)

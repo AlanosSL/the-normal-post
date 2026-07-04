@@ -902,6 +902,115 @@ details[open] .faq__question::after {
   margin-bottom: var(--space-lg);
 }
 
+/* ── Sección Regálalo ── */
+.gift {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.gift__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.gift__card {
+  position: relative;
+  width: 260px;
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--white);
+  border: 2px solid rgba(43, 37, 32, 0.1);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow:
+    0 8px 30px rgba(43, 37, 32, 0.08),
+    0 1px 3px rgba(43, 37, 32, 0.04);
+  transform: rotate(-2deg);
+  transition: transform 0.4s var(--ease);
+}
+
+.gift__card:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.gift__card-ribbon {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  background: var(--sealing-wax);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(185, 74, 58, 0.3);
+}
+
+.gift__card-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.gift__card-text em {
+  color: var(--sealing-wax);
+  font-style: italic;
+}
+
+.gift__card-from {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* ── Sticky Bar Mobile ── */
+.sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 0.75rem var(--space-md);
+  background: rgba(30, 27, 24, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(251, 246, 238, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease);
+}
+
+.sticky-bar.visible {
+  transform: translateY(0);
+}
+
+.sticky-bar__btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--sealing-wax);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(185, 74, 58, 0.35);
+  transition: background var(--duration) var(--ease);
+}
+
+.sticky-bar__btn:hover {
+  background: var(--wax-dark);
+}
+
 /* ── Footer ── */
 .footer {
   background: var(--dark-bg);
@@ -1038,6 +1147,24 @@ details[open] .faq__question::after {
     order: -1;
   }
 
+  .gift {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .gift__text .section__body {
+    max-width: 100%;
+  }
+
+  .gift__text .btn {
+    margin-top: var(--space-sm);
+  }
+
+  .gift__visual {
+    order: -1;
+  }
+
   .footer__grid {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-lg);
@@ -1148,9 +1275,26 @@ details[open] .faq__question::after {
   .envelope-card__lines span:nth-child(2) { width: 55px; }
   .envelope-card__lines span:nth-child(3) { width: 40px; }
 
+  .sticky-bar {
+    display: block;
+  }
+
+  .footer {
+    padding-bottom: 5rem;
+  }
+
   .manifesto p {
     font-size: clamp(1.15rem, 4vw, 1.6rem);
     padding: 0 var(--space-xs);
+  }
+
+  .gift__card {
+    width: 220px;
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .gift__card-text {
+    font-size: 1.25rem;
   }
 
   .faq__question {
