@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="5" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.1" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#F0E4D0"/>
+  <rect width="1200" height="630" fill="#6B5B45" filter="url(#grain)"/>
+
+  <circle cx="1050" cy="150" r="60" fill="#B94A3A" opacity="0.9"/>
+  <path d="M1025 140 L1050 158 L1075 140" fill="none" stroke="#FBF6EE" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="1025" y="140" width="50" height="35" rx="3" fill="none" stroke="#FBF6EE" stroke-width="3.5"/>
+
+  <text x="100" y="260" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#2B2520">The Normal Post</text>
+  <text x="100" y="340" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-style="italic" fill="#B94A3A">Cartas con alma,</text>
+  <text x="100" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-style="italic" fill="#B94A3A">cada mes en tu buzón.</text>
+
+  <text x="100" y="480" font-family="'Segoe UI', Arial, sans-serif" font-size="22" fill="#5C544D">Suscripción mensual de correo bonito · Desde 14 €/mes</text>
+
+  <line x1="100" y1="520" x2="400" y2="520" stroke="#B94A3A" stroke-width="3" opacity="0.4"/>
+
+  <text x="100" y="570" font-family="'Segoe UI', Arial, sans-serif" font-size="18" fill="#8A8279">thenormalpost.com</text>
+</svg>
