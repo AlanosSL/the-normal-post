@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800">
+  <defs>
+    <!-- Grano fino de fibras de papel -->
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="6" seed="2" stitchTiles="stitch" result="fine"/>
+      <feColorMatrix type="saturate" values="0" in="fine" result="grey"/>
+      <feComponentTransfer in="grey" result="grain">
+        <feFuncA type="linear" slope="0.18" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Fibras largas de celulosa -->
+    <filter id="fibers" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015 0.15" numOctaves="3" seed="7" stitchTiles="stitch" result="fib"/>
+      <feColorMatrix type="saturate" values="0" in="fib" result="grey2"/>
+      <feComponentTransfer in="grey2" result="fibers">
+        <feFuncA type="linear" slope="0.06" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Variación de tono suave (manchas de humedad / envejecimiento) -->
+    <filter id="stains" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="3" seed="15" stitchTiles="stitch" result="cloud"/>
+      <feColorMatrix type="saturate" values="0" in="cloud" result="grey3"/>
+      <feComponentTransfer in="grey3" result="stains">
+        <feFuncA type="linear" slope="0.09" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Relieve / iluminación sutil -->
+    <filter id="emboss" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="4" seed="3" stitchTiles="stitch" result="bump"/>
+      <feDiffuseLighting in="bump" lighting-color="#FFF8EE" surfaceScale="1.2" diffuseConstant="0.8" result="light">
+        <feDistantLight azimuth="225" elevation="55"/>
+      </feDiffuseLighting>
+      <feComposite operator="in" in="light" in2="SourceGraphic" result="emboss"/>
+      <feComponentTransfer in="emboss">
+        <feFuncA type="linear" slope="0.12" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- Color base papel -->
+  <rect width="800" height="800" fill="#F0E4D0"/>
+
+  <!-- Capa de calidez -->
+  <rect width="800" height="800" fill="#E8D5B8" opacity="0.3"/>
+
+  <!-- Variación tonal suave -->
+  <rect width="800" height="800" fill="#C9AD86" filter="url(#stains)"/>
+
+  <!-- Fibras de celulosa -->
+  <rect width="800" height="800" fill="#8B7355" filter="url(#fibers)"/>
+
+  <!-- Grano fino -->
+  <rect width="800" height="800" fill="#6B5B45" filter="url(#grain)"/>
+
+  <!-- Relieve de superficie -->
+  <rect width="800" height="800" fill="#FFFFFF" filter="url(#emboss)"/>
+
+  <!-- Borde sutil de envejecimiento -->
+  <rect width="800" height="800" fill="url(#vignette)" opacity="0.04"/>
+</svg>
