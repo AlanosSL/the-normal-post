@@ -1,31 +1,56 @@
 (() => {
   'use strict';
 
-  // Activar Google Fonts (cargadas como media="print" para no bloquear render)
   const fontLink = document.getElementById('google-fonts');
   if (fontLink) fontLink.media = 'all';
 
-  // Navegación mobile
   const toggle = document.getElementById('nav-toggle');
   const menu   = document.getElementById('nav-menu');
+
+  function closeMenu() {
+    toggle.classList.remove('active');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+  }
 
   toggle.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('open');
     toggle.classList.toggle('active');
     toggle.setAttribute('aria-expanded', isOpen);
     toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+
+    if (isOpen) {
+      const firstLink = menu.querySelector('.nav__link');
+      if (firstLink) firstLink.focus();
+    }
   });
 
   menu.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      menu.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menú');
-    });
+    link.addEventListener('click', closeMenu);
   });
 
-  // Nav scroll effect + sticky bar
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      closeMenu();
+      toggle.focus();
+    }
+
+    if (e.key === 'Tab' && menu.classList.contains('open')) {
+      const focusable = menu.querySelectorAll('.nav__link');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
   const nav = document.getElementById('nav');
   const stickyBar = document.getElementById('sticky-bar');
   const heroSection = document.getElementById('hero');
@@ -43,7 +68,6 @@
     }
   }, { passive: true });
 
-  // Animaciones al hacer scroll (Intersection Observer)
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -58,7 +82,6 @@
 
   document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-  // Selector de zona (España / Internacional)
   const zoneBtns = document.querySelectorAll('.pricing__zone-btn');
   const pricingGrid = document.getElementById('pricing-grid');
   const intNotice = document.getElementById('pricing-int-notice');
@@ -90,10 +113,11 @@
     });
   });
 
-  // Smooth scroll para links internos
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+      const href = anchor.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth' });

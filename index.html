@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Recibe cada mes una carta única en tu buzón. Una experiencia humana de regalo físico. Desde 14€/mes.">
   <meta name="twitter:image" content="https://thenormalpost.com/img/og-image.png">
 
-  <!-- Structured Data -->
+  <!-- Structured Data: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,32 +38,43 @@
     "logo": "https://thenormalpost.com/img/favicon.svg",
     "sameAs": [
       "https://instagram.com/thenormalpost"
-    ],
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "1 Mes",
-        "price": "14.00",
-        "priceCurrency": "EUR",
-        "description": "Una carta única durante un mes",
-        "url": "https://thenormalpost.com/#planes"
-      },
-      {
-        "@type": "Offer",
-        "name": "3 Meses",
-        "price": "42.00",
-        "priceCurrency": "EUR",
-        "description": "Tres meses de cartas únicas",
-        "url": "https://thenormalpost.com/#planes"
-      },
-      {
-        "@type": "Offer",
-        "name": "1 Año",
-        "price": "150.00",
-        "priceCurrency": "EUR",
-        "description": "Un año completo de cartas únicas",
-        "url": "https://thenormalpost.com/#planes"
-      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: Service + Offers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "The Normal Post — Suscripción de cartas",
+    "provider": { "@type": "Organization", "name": "The Normal Post" },
+    "areaServed": { "@type": "Country", "name": "ES" },
+    "url": "https://thenormalpost.com/#planes",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Planes de suscripción",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Carta Suelta — 1 Mes", "price": "14.00", "priceCurrency": "EUR", "description": "Una carta única durante un mes", "url": "https://thenormalpost.com/#planes" },
+        { "@type": "Offer", "name": "Correspondencia — 3 Meses", "price": "42.00", "priceCurrency": "EUR", "description": "Tres meses de cartas únicas", "url": "https://thenormalpost.com/#planes" },
+        { "@type": "Offer", "name": "Suscripción Anual — 12 Meses", "price": "150.00", "priceCurrency": "EUR", "description": "Un año completo de cartas únicas", "url": "https://thenormalpost.com/#planes" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye cada envío?", "acceptedAnswer": { "@type": "Answer", "text": "Cada mes recibirás un sobre con una carta escrita con cuidado, acompañada de pequeñas sorpresas en papel: postales, ilustraciones, stickers, marcapáginas o pequeños objetos de papelería. Además, cada envío incluye una playlist personalizada de Spotify y una receta de temporada." } },
+      { "@type": "Question", "name": "¿Puedo regalarlo a alguien?", "acceptedAnswer": { "@type": "Answer", "text": "¡Por supuesto! Durante el proceso de suscripción podrás indicar una dirección de envío diferente a la tuya." } },
+      { "@type": "Question", "name": "¿Hacéis envíos fuera de España?", "acceptedAnswer": { "@type": "Answer", "text": "¡Sí! Enviamos a toda España (incluidas Baleares y Canarias) con gastos de envío incluidos. También realizamos envíos internacionales con la suscripción mensual (Carta Suelta), con un coste adicional de 10 € por envío." } },
+      { "@type": "Question", "name": "¿Cuándo se envían las cartas?", "acceptedAnswer": { "@type": "Answer", "text": "Los envíos se realizan el día 15 de cada mes. Dependiendo de tu zona, la carta puede tardar entre 2 y 5 días laborables en llegar." } },
+      { "@type": "Question", "name": "¿Puedo cancelar mi suscripción?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, puedes cancelar enviando un email a hola@thenormalpost.com antes del día 15 del mes en curso." } },
+      { "@type": "Question", "name": "¿Es papel reciclado?", "acceptedAnswer": { "@type": "Answer", "text": "Usamos papel certificado FSC y tintas ecológicas siempre que es posible. Los sobres y embalajes son 100% reciclables." } }
     ]
   }
   </script>
@@ -80,11 +91,13 @@
   <meta name="theme-color" content="#F0E4D0">
 
   <!-- Seguridad -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://buy.stripe.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://buy.stripe.com; upgrade-insecure-requests;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="0">
 
   <link rel="stylesheet" href="css/styles.css">
+  <noscript><style>.animate-on-scroll { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
@@ -93,14 +106,14 @@
   <!-- Navegación -->
   <nav class="nav" id="nav" aria-label="Navegación principal">
     <div class="nav__container">
-      <a href="#" class="nav__logo">
+      <a href="#" class="nav__logo" aria-label="The Normal Post - Inicio">
         <span class="nav__logo-icon" aria-hidden="true">✉</span>
         <span class="nav__logo-text">The Normal Post</span>
       </a>
       <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav__menu" id="nav-menu">
+      <ul class="nav__menu" id="nav-menu" role="list">
         <li><a href="#que-es" class="nav__link">Qué es</a></li>
         <li><a href="#como-funciona" class="nav__link">Cómo funciona</a></li>
         <li><a href="#planes" class="nav__link">Planes</a></li>
@@ -483,7 +496,7 @@
   </footer>
 
   <!-- Sticky bar mobile -->
-  <div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-bar" id="sticky-bar" role="complementary" aria-label="Suscripción">
     <a href="#planes" class="sticky-bar__btn">Suscríbete desde 14&thinsp;€/mes</a>
   </div>
 
