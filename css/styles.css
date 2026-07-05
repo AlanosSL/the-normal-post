@@ -760,7 +760,7 @@ ul {
 
 .pricing--international {
   grid-template-columns: 1fr;
-  max-width: 380px;
+  max-width: 420px;
   margin-left: auto;
   margin-right: auto;
 }
