@@ -848,11 +848,14 @@ ul {
 }
 
 .pricing__original-price {
-  font-size: 1.3rem;
-  color: rgba(251, 246, 238, 0.45);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(251, 246, 238, 0.55);
   text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--sealing-wax);
   align-self: center;
-  margin-right: 0.4rem;
+  margin-right: 0.6rem;
 }
 
 .pricing__amount {
