@@ -106,7 +106,7 @@
         : 'pago único · 14 €';
       cartaSueltaShipping.textContent = isInt
         ? 'Envío internacional incluido (+10 €)'
-        : 'Envío incluido';
+        : 'Envío gratis';
     });
   });
 
