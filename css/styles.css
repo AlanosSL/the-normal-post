@@ -702,6 +702,65 @@ ul {
 }
 
 /* ── Pricing ── */
+.pricing__zone-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: var(--space-lg);
+  background: rgba(251, 246, 238, 0.08);
+  border-radius: 100px;
+  padding: 4px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing__zone-btn {
+  flex: 1;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+  color: rgba(251, 246, 238, 0.6);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+}
+
+.pricing__zone-btn--active {
+  background: var(--sealing-wax);
+  color: var(--white);
+  box-shadow: 0 2px 8px rgba(185, 74, 58, 0.3);
+}
+
+.pricing__zone-btn:hover:not(.pricing__zone-btn--active) {
+  color: var(--paper);
+}
+
+.pricing--international .pricing__card--spain-only {
+  display: none;
+}
+
+.pricing--international {
+  grid-template-columns: 1fr;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing__int-notice {
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(251, 246, 238, 0.65);
+  margin-top: var(--space-md);
+  padding: 0.8rem var(--space-md);
+  background: rgba(251, 246, 238, 0.06);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(251, 246, 238, 0.1);
+}
+
 .pricing {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -809,6 +868,18 @@ ul {
   font-weight: 600;
   color: rgba(251, 246, 238, 0.6);
   margin-top: 0.5rem;
+}
+
+.pricing__per-month {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(251, 246, 238, 0.5);
+  align-self: flex-end;
+  margin-bottom: 0.35rem;
+}
+
+.pricing__badge--save {
+  background: var(--sage);
 }
 
 .pricing__period {
@@ -1348,6 +1419,7 @@ details[open] .faq__question::after {
   .pricing__amount {
     font-size: 2.8rem;
   }
+
 }
 
 @media (max-width: 480px) {

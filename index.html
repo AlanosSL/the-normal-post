@@ -51,7 +51,7 @@
       {
         "@type": "Offer",
         "name": "3 Meses",
-        "price": "39.00",
+        "price": "42.00",
         "priceCurrency": "EUR",
         "description": "Tres meses de cartas únicas",
         "url": "https://thenormalpost.com/#planes"
@@ -235,12 +235,17 @@
         Elige tu aventura<br><em>postal.</em>
       </h2>
       <p class="section__subtitle section__subtitle--light">
-        Todos los planes incluyen envío a cualquier dirección en España peninsular.
+        Envío incluido en España (incluidas Baleares y Canarias).
       </p>
 
-      <div class="pricing">
+      <div class="pricing__zone-toggle" role="tablist" aria-label="Zona de envío">
+        <button class="pricing__zone-btn pricing__zone-btn--active" role="tab" aria-selected="true" data-zone="es">España</button>
+        <button class="pricing__zone-btn" role="tab" aria-selected="false" data-zone="int">Internacional</button>
+      </div>
+
+      <div class="pricing" id="pricing-grid">
         <!-- 1 mes -->
-        <a href="https://buy.stripe.com/fZudRb9jm9rydkl3J6gbm00" class="pricing__card animate-on-scroll" data-plan="1-mes" rel="noopener noreferrer">
+        <a href="https://buy.stripe.com/3cI7sN9jmeLSeop93qgbm03" class="pricing__card animate-on-scroll" data-plan="1-mes" data-href-es="https://buy.stripe.com/3cI7sN9jmeLSeop93qgbm03" data-href-int="https://buy.stripe.com/eVq14p2UY6fma892F2gbm04" rel="noopener noreferrer">
           <div class="pricing__card-inner">
             <div class="pricing__stamp-corner">✧</div>
             <h3 class="pricing__name">Carta Suelta</h3>
@@ -248,56 +253,58 @@
             <div class="pricing__price">
               <span class="pricing__amount">14</span>
               <span class="pricing__currency">€</span>
+              <span class="pricing__per-month">/mes</span>
             </div>
-            <p class="pricing__period">pago único</p>
+            <p class="pricing__period" id="carta-suelta-period">pago único · 14&thinsp;€</p>
             <ul class="pricing__features">
               <li>1 envío con carta y sorpresas</li>
               <li>Papelería artesanal</li>
               <li>Playlist Spotify personalizada (QR)</li>
               <li>Receta de temporada</li>
-              <li>Envío incluido</li>
+              <li id="carta-suelta-shipping">Envío incluido</li>
             </ul>
             <span class="btn btn--plan">Quiero mi carta</span>
           </div>
         </a>
 
         <!-- 3 meses -->
-        <a href="https://buy.stripe.com/fZu7sN536avC8015Regbm01" class="pricing__card pricing__card--featured animate-on-scroll" data-plan="3-meses" rel="noopener noreferrer">
+        <a href="https://buy.stripe.com/14AaEZ9jm9rya891AYgbm06" class="pricing__card pricing__card--featured pricing__card--spain-only animate-on-scroll" data-plan="3-meses" rel="noopener noreferrer">
           <div class="pricing__card-inner">
             <div class="pricing__badge">Más popular</div>
             <div class="pricing__stamp-corner">✦</div>
             <h3 class="pricing__name">Correspondencia</h3>
             <p class="pricing__desc">Tres meses de correo bonito.</p>
             <div class="pricing__price">
-              <span class="pricing__original-price">42&thinsp;€</span>
-              <span class="pricing__amount">39</span>
+              <span class="pricing__amount">14</span>
               <span class="pricing__currency">€</span>
+              <span class="pricing__per-month">/mes</span>
             </div>
-            <p class="pricing__period">3 meses · 13&thinsp;€/mes</p>
+            <p class="pricing__period">3 meses · 42&thinsp;€ total</p>
             <ul class="pricing__features">
               <li>3 envíos (uno cada mes)</li>
               <li>Papelería artesanal</li>
               <li>Playlist Spotify personalizada (QR)</li>
               <li>Receta de temporada</li>
               <li>Envío incluido</li>
-              <li>Ahorra un 7%</li>
             </ul>
             <span class="btn btn--plan btn--plan-featured">Empezar correspondencia</span>
           </div>
         </a>
 
         <!-- 1 año -->
-        <a href="https://buy.stripe.com/9B6eVf5361Z6945bbygbm02" class="pricing__card animate-on-scroll" data-plan="1-ano" rel="noopener noreferrer">
+        <a href="https://buy.stripe.com/3cI00leDG1Z6fstdjGgbm07" class="pricing__card pricing__card--spain-only animate-on-scroll" data-plan="1-ano" rel="noopener noreferrer">
           <div class="pricing__card-inner">
+            <div class="pricing__badge pricing__badge--save">Mejor precio</div>
             <div class="pricing__stamp-corner">◈</div>
             <h3 class="pricing__name">Suscripción Anual</h3>
             <p class="pricing__desc">Un año de sorpresas en papel.</p>
             <div class="pricing__price">
-              <span class="pricing__original-price">168&thinsp;€</span>
-              <span class="pricing__amount">150</span>
+              <span class="pricing__original-price">14&thinsp;€/mes</span>
+              <span class="pricing__amount">12,50</span>
               <span class="pricing__currency">€</span>
+              <span class="pricing__per-month">/mes</span>
             </div>
-            <p class="pricing__period">12 meses · 12,50&thinsp;€/mes</p>
+            <p class="pricing__period">12 meses · 150&thinsp;€ total</p>
             <ul class="pricing__features">
               <li>12 envíos (uno cada mes)</li>
               <li>Papelería artesanal</li>
@@ -311,6 +318,10 @@
           </div>
         </a>
       </div>
+
+      <p class="pricing__int-notice" id="pricing-int-notice" hidden>
+        Para envíos internacionales solo está disponible la suscripción mensual. Envío: +10&thinsp;€ por carta.
+      </p>
 
       <p class="pricing__note">
         🔒 Pago seguro con Stripe. Cancela antes del día 15 escribiendo a hola@thenormalpost.com.
@@ -391,7 +402,7 @@
         <details class="faq__item">
           <summary class="faq__question">¿Hacéis envíos fuera de España?</summary>
           <div class="faq__answer">
-            <p>De momento enviamos a toda España peninsular con gastos de envío incluidos. Estamos trabajando para ampliar a Baleares, Canarias y Europa. ¡Estate atento!</p>
+            <p>¡Sí! Enviamos a toda España (incluidas Baleares y Canarias) con gastos de envío incluidos. También realizamos envíos internacionales con la suscripción mensual (Carta Suelta), con un coste adicional de 10&thinsp;€ por envío. Los planes de 3 y 12 meses solo están disponibles para envíos dentro de España.</p>
           </div>
         </details>
 

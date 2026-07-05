@@ -58,6 +58,38 @@
 
   document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
+  // Selector de zona (España / Internacional)
+  const zoneBtns = document.querySelectorAll('.pricing__zone-btn');
+  const pricingGrid = document.getElementById('pricing-grid');
+  const intNotice = document.getElementById('pricing-int-notice');
+  const cartaSueltaCard = pricingGrid.querySelector('[data-plan="1-mes"]');
+  const cartaSueltaPeriod = document.getElementById('carta-suelta-period');
+  const cartaSueltaShipping = document.getElementById('carta-suelta-shipping');
+
+  zoneBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const zone = btn.dataset.zone;
+      const isInt = zone === 'int';
+
+      zoneBtns.forEach(b => {
+        b.classList.toggle('pricing__zone-btn--active', b === btn);
+        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+      });
+
+      pricingGrid.classList.toggle('pricing--international', isInt);
+
+      cartaSueltaCard.href = cartaSueltaCard.dataset[isInt ? 'hrefInt' : 'hrefEs'];
+      cartaSueltaPeriod.innerHTML = isInt
+        ? '14 € + 10 € envío · 24 € total'
+        : 'pago único · 14 €';
+      cartaSueltaShipping.textContent = isInt
+        ? 'Envío internacional: +10 €'
+        : 'Envío incluido';
+
+      intNotice.hidden = !isInt;
+    });
+  });
+
   // Smooth scroll para links internos
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
