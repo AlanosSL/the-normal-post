@@ -79,11 +79,11 @@
       pricingGrid.classList.toggle('pricing--international', isInt);
 
       cartaSueltaCard.href = cartaSueltaCard.dataset[isInt ? 'hrefInt' : 'hrefEs'];
-      cartaSueltaPeriod.innerHTML = isInt
-        ? '14 € + 10 € envío · 24 € total'
-        : 'pago único · 14 €';
+      cartaSueltaPeriod.textContent = isInt
+        ? 'pago único · 24 € con envío'
+        : 'pago único · 14 €';
       cartaSueltaShipping.textContent = isInt
-        ? 'Envío internacional: +10 €'
+        ? 'Envío internacional incluido (+10 €)'
         : 'Envío incluido';
 
       intNotice.hidden = !isInt;

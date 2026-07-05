@@ -745,7 +745,7 @@ ul {
 
 .pricing--international {
   grid-template-columns: 1fr;
-  max-width: 380px;
+  max-width: 420px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -848,14 +848,17 @@ ul {
 }
 
 .pricing__original-price {
-  font-size: 1.4rem;
+  display: inline-block;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(251, 246, 238, 0.55);
+  color: rgba(251, 246, 238, 0.6);
   text-decoration: line-through;
   text-decoration-thickness: 2px;
   text-decoration-color: var(--sealing-wax);
-  align-self: center;
-  margin-right: 0.6rem;
+  background: rgba(251, 246, 238, 0.08);
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
 }
 
 .pricing__amount {
