@@ -84,7 +84,6 @@
 
   const zoneBtns = document.querySelectorAll('.pricing__zone-btn');
   const pricingGrid = document.getElementById('pricing-grid');
-  const intNotice = document.getElementById('pricing-int-notice');
   const cartaSueltaCard = pricingGrid.querySelector('[data-plan="1-mes"]');
   const cartaSueltaPeriod = document.getElementById('carta-suelta-period');
   const cartaSueltaShipping = document.getElementById('carta-suelta-shipping');
@@ -108,8 +107,6 @@
       cartaSueltaShipping.textContent = isInt
         ? 'Envío internacional incluido (+10 €)'
         : 'Envío incluido';
-
-      intNotice.hidden = !isInt;
     });
   });
 
